@@ -35,15 +35,15 @@ int input_integer(short integer_length) {
 	char main_string[MAX_STRING] = {0}; 	   /// the string that I will pass in input to the procedure input_string
 
 	do {
-        /// I call the procedure to take the string as input (which should be a numeric value)
+		/// I call the procedure to take the string as input (which should be a numeric value)
 		input_string(main_string, integer_length);
 
-        /** I call the function that checks if the string taken in input is a number or not, if 
-         * it returns 1, the flag is set to 1 and exits, otherwise the cycle is repeated. */
+		/** I call the function that checks if the string taken in input is a number or not, if 
+		 * it returns 1, the flag is set to 1 and exits, otherwise the cycle is repeated. */
 		if (check_integer(&integer, main_string) == 1) {
-            flag = 1;
-        }
-        else {
+            		flag = 1;
+		}
+		else {
 			fprintf(stderr, "ERROR: Enter a value that is numeric.\n");
 		}
 
@@ -64,7 +64,7 @@ int input_integer(short integer_length) {
  */
 int check_integer(int * integer, char * main_string) {
 
-	char * remaining_string = 0;       /// here the remaining string is stored after separation from numeric values
+    char * remaining_string = 0;       /// here the remaining string is stored after separation from numeric values
 
     /// remove a null string bug
     if (isdigit(main_string[0]) == 0) {
@@ -125,7 +125,7 @@ int check_string(char * string, unsigned short max_length, unsigned short min_le
 	if (flag_space == 1) {
 
         /// I call the function that checks that there are no spaces in the string
-		if (check_spaces(string) == 0) {
+	if (check_spaces(string) == 0) {
             error_spaces = 1;
         }
         else if (check_spaces(string) == 2) {
@@ -164,7 +164,6 @@ int check_string(char * string, unsigned short max_length, unsigned short min_le
     if (check_graphic_characters(string) == 0) {
     	error_graphic_char = 1;
     }
-
 
 	/// check that the maximum length has not been exceeded
 	if (strlen(string) > max_length - ADDITION) {
