@@ -30,27 +30,27 @@ int input_integer(short integer_length) {
         return 0;
     }
 
-	int integer = 0;
-	int flag = 0;						       /// it serves to repeat the cycle
-	char main_string[MAX_STRING] = {0}; 	   /// the string that I will pass in input to the procedure input_string
+    int integer = 0;
+    int flag = 0;						       /// it serves to repeat the cycle
+    char main_string[MAX_STRING] = {0}; 	   /// the string that I will pass in input to the procedure input_string
 
-	do {
-		/// I call the procedure to take the string as input (which should be a numeric value)
-		input_string(main_string, integer_length);
+    do {
+    	/// I call the procedure to take the string as input (which should be a numeric value)
+	input_string(main_string, integer_length);
 
-		/** I call the function that checks if the string taken in input is a number or not, if 
-		 * it returns 1, the flag is set to 1 and exits, otherwise the cycle is repeated. */
-		if (check_integer(&integer, main_string) == 1) {
-            		flag = 1;
-		}
-		else {
-			fprintf(stderr, "ERROR: Enter a value that is numeric.\n");
-		}
+	/** I call the function that checks if the string taken in input is a number or not, if 
+	 * it returns 1, the flag is set to 1 and exits, otherwise the cycle is repeated. */
+	if (check_integer(&integer, main_string) == 1) {
+		flag = 1;
+	}
+	else {
+		fprintf(stderr, "ERROR: Enter a value that is numeric.\n");
+	}
 
-		/** if flag is still set to 0, repeat the input, if flag is 1, exit. */
-	} while (flag == 0);
+	/** if flag is still set to 0, repeat the input, if flag is 1, exit. */
+     } while (flag == 0);
 
-	return integer;
+     return integer;
 }
 
 
@@ -117,28 +117,28 @@ int check_string(char * string, unsigned short max_length, unsigned short min_le
 
     short general_error = 0;      /// reports that there is at least one (or none) error in the string
 
-	/**
+    /**
      * if the flag has been set to 1 between the parameters, check that the inserted string has no spaces.
      * If the parameter is a value other than 1 (for convenience I'll use 0) it will only check that
      * the string does not start with a space.
      */
-	if (flag_space == 1) {
+     if (flag_space == 1) {
 
-        /// I call the function that checks that there are no spaces in the string
-	if (check_spaces(string) == 0) {
-            error_spaces = 1;
-        }
-        else if (check_spaces(string) == 2) {
-            error_empty_string = 1;
-        }
+	     /// I call the function that checks that there are no spaces in the string
+	     if (check_spaces(string) == 0) {
+		 error_spaces = 1;
+	     }
+	     else if (check_spaces(string) == 2) {
+		 error_empty_string = 1;
+	     }
 
-	}
-	else {
-        /// I check that the string doesn't start with a space
-		if (string[0] == ' ') {
-			error_initial_space = 1;
-		}
-	}
+     }
+     else {
+     /// I check that the string doesn't start with a space
+     	if (string[0] == ' ') {
+     		error_initial_space = 1;
+     	}
+     }
 
     /**
      * if the flag is set to 1 among the parameters, check that the inserted string has no numbers
@@ -165,15 +165,15 @@ int check_string(char * string, unsigned short max_length, unsigned short min_le
     	error_graphic_char = 1;
     }
 
-	/// check that the maximum length has not been exceeded
-	if (strlen(string) > max_length - ADDITION) {
-		error_max_length = 1;
-	}
+    /// check that the maximum length has not been exceeded
+    if (strlen(string) > max_length - ADDITION) {
+        error_max_length = 1;
+    }
 
     /// check that the string respects a minimum length
-	if (strlen(string) < min_length) {
-		error_min_length = 1;
-	}
+    if (strlen(string) < min_length) {
+	    error_min_length = 1;
+    }
 
     /**
      * sum all flags into a general one, if the flags are all set to 0, the general flag will be 0,
