@@ -123,18 +123,16 @@ int check_string(char * string, unsigned short max_length, unsigned short min_le
      * the string does not start with a space.
      */
      if (flag_space == 1) {
-
-	     /// I call the function that checks that there are no spaces in the string
-	     if (check_spaces(string) == 0) {
-		 error_spaces = 1;
-	     }
-	     else if (check_spaces(string) == 2) {
-		 error_empty_string = 1;
-	     }
-
+         /// I call the function that checks that there are no spaces in the string
+         if (check_spaces(string) == 0) {
+	     error_spaces = 1;
+         }
+         else if (check_spaces(string) == 2) {
+	     error_empty_string = 1;
+         }
      }
      else {
-     /// I check that the string doesn't start with a space
+     	/// I check that the string doesn't start with a space
      	if (string[0] == ' ') {
      		error_initial_space = 1;
      	}
