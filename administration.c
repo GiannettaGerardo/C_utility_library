@@ -325,7 +325,7 @@ int check_numeric_string(char * string) {
 
 
 /**
- * @authors: Gerardo Giannetta - Francesco Catignano
+ * @authors: Gerardo Giannetta - Francesco Catignano ( https://github.com/catignanof )
  *
  * Procedure that takes as input a string of maximum length passed as a parameter,
  * accepts spaces and clears the buffer of remaining characters.
